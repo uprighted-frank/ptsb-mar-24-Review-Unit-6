@@ -16,9 +16,9 @@ exports.loginUser = async (req, res) => {
         if (result) {
             // Make JWT and send response
             const signedJWT = jwt.sign(req.body, process.env.SECRET_KEY, { expiresIn: 120 });
-            res.status(201).json({ message: "Login successful", token: signedJWT })
+            res.status(201).json({ message: "Login successful", token: signedJWT, loggedIn: true, username: username })
         } else {
-            res.status(403).json("Login failed!")
+            res.status(403).json({ message: "Login failed", loggedIn: false })
         }
     })
 }

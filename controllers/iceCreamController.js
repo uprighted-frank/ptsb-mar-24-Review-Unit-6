@@ -32,7 +32,7 @@ exports.addIceCream = async (req, res) => {
     try {
         const newIceCream = new IceCream({
             flavor: req.body.flavor,
-            softServe: req.body.softServer,
+            softServe: req.body.softServe,
             manufacturer: req.body.manufacturer,
             scoopQuantity: req.body.scoopQuantity
         });
