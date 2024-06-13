@@ -1,0 +1,10 @@
+input {
+    display: block;
+}
+
+.loginForm {
+    background-color: gray;
+    padding: 20px;
+    width: 200px;
+    margin: 0 auto;
+}

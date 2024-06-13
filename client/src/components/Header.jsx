@@ -6,7 +6,7 @@ export default function Header() {
         <>
             <nav>
                 <Link to="/login">Login</Link>
-                <Link to="/logout">Logout</Link>
+                <Link to="/register">Register</Link>
             </nav>
 
             <Outlet />

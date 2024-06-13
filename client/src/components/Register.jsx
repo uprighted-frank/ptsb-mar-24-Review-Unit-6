@@ -1,13 +1,13 @@
-import "../styles/Login.css"
 
-export default function Login() {
+
+export default function Register() {
 
     return (
-        <div className="loginForm">
+        <div className="registerForm">
             <form>
                 <input type="text" name="username" id="username" placeholder="Username"/>
                 <input type="password" name="password" id="password" placeholder="Password" />
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
             </form>
         </div>
     )
