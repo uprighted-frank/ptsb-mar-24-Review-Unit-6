@@ -1,6 +1,7 @@
-
+import { useNavigate  } from "react-router-dom";
 
 export default function Register() {
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -13,9 +14,6 @@ export default function Register() {
             password: password
         }
 
-        console.log(username);
-        console.log(password);
-
         const response = await fetch("http://localhost:3000/users/register", {
             method: "POST",
             body: JSON.stringify(body),
@@ -25,8 +23,8 @@ export default function Register() {
         });
 
         const data = await response.json();
-        console.log(data);
-        
+        navigate("/login");
+
     }
 
     return (
