@@ -13,10 +13,17 @@ exports.loginUser = async (req, res) => {
 
     const hashedPasswordFromUser = userFound.password;
 
+    // Payload consists of password, username and _id
+    const payload = {
+        password: req.body.password,
+        username: req.body.username,
+        _id: userFound.id
+    }
+
     bcrypt.compare(password, hashedPasswordFromUser, (err, result) => {
         if (result) {
             // Make JWT and send response
-            const signedJWT = jwt.sign(req.body, process.env.SECRET_KEY, { expiresIn: 120 });
+            const signedJWT = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 120 });
             res.status(201).json({ message: "Login successful", token: signedJWT, loggedIn: true, username: username })
         } else {
             res.status(403).json({ message: "Login failed", loggedIn: false })

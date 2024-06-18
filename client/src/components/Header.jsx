@@ -1,28 +1,14 @@
 import { Link, Outlet } from 'react-router-dom';
 
-export default function Header({ isLoggedIn }) {
+export default function Header() {
 
-    let welcomeBanner = null;
-    
-    if (isLoggedIn) {
-        const username = localStorage.getItem("username")
-        welcomeBanner = <h2>Welcome {username}</h2>
-    }
-
-
+    // I WILL NEED TO REWORK THIS. Just displaying the navbar links
     return (
         <>
-            {
-                !isLoggedIn ?
                     <nav>
                         <Link to="/login">Login</Link>
                         <Link to="/register">Register</Link>
                     </nav>
-                
-                    :
-
-                    welcomeBanner
-            }
 
 
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const sessionValidation = require("./middleware/sessionValidation");
 require("dotenv").config();
 
 const userRoutes = require("./routes/userRoutes");
@@ -20,7 +21,7 @@ db.once("open", () => {
 })
 
 app.use("/users", userRoutes);
-app.use("/icecream", iceCreamRoutes);
+app.use("/icecream", sessionValidation, iceCreamRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

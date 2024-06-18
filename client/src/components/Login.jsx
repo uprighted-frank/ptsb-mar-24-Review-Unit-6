@@ -1,7 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css"
+import { useEffect, useState } from "react";
 
 export default function Login({ handlerLogin }) {
+
+    useEffect(() => {
+
+        console.log(localStorage)
+        // If 'token' in localStorage is present, navigate to "/shop" route
+        if (localStorage.token) {
+            navigate("/shop")
+        }
+
+    }, []);
+
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
@@ -28,7 +40,6 @@ export default function Login({ handlerLogin }) {
         if (data.loggedIn) {
             localStorage.setItem("username", data.username);
             localStorage.setItem("token", data.token);
-            handlerLogin(true);
 
             navigate("/shop");
         } 
